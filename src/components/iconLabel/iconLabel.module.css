@@ -1,0 +1,7 @@
+.div_IconLabel{
+  cursor: pointer;
+}
+
+.div_IconLabel:hover{
+  transform: scale(1.1);
+}
