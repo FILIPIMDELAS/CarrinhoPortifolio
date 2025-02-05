@@ -8,16 +8,18 @@ export default function Kart() {
   const { cardItens, setCardItens } = useGlobalContext()
   const [itens, setItens] = useState([])
   const [contItens, setConstItens] = useState(0)
+  const [subtotal, setSubTotal] = useState(0)
 
   useEffect(() => {
     const item = [...new Set(cardItens)]
+    setSubTotal(cardItens.reduce((acc, produto) => acc + parseFloat(produto.price), 0))
     setItens(item)
   }, [cardItens])
 
   useEffect(() => {
     const qtdItens = {};
     cardItens.forEach(item => {
-      qtdItens[item.name] = parseInt((qtdItens[item.name] || 0) + 1)
+      qtdItens[item.id] = parseInt((qtdItens[item.id] || 0) + 1)
     });
     setConstItens(qtdItens)
   }, [cardItens]);
@@ -51,7 +53,6 @@ export default function Kart() {
 
   return (
     <div className={`${style.div_KartSuspense}`}>
-      <p>v</p>
       <div className={style.div_contentMapsKart}>
         {itens.map((item, index) => {
           return (
@@ -61,18 +62,22 @@ export default function Kart() {
                 <div className={style.div_ContentInfoItemKart}>
                   <h4>{item.name}</h4>
                   <h5>{item.desc}</h5>
-                  <p>R$ {(contItens[item.name] * parseFloat(item.price)).toFixed(2)}</p>
+                  <p>R$ {(contItens[item.id] * parseFloat(item.price)).toFixed(2)}</p>
                   <div className={style.div_ContentContItemKart}>
                     <IconLabel name={'Minus'} label={''} onClick={() => { removeOneItem(item) }} />
-                    {contItens[item.name]}
+                    {contItens[item.id]}
                     <IconLabel name={'Plus'} label={''} onClick={() => { addMoreOneItem(item) }} />
-                    <Buttons onClick={() => {removeAllItem(item)}} label={'Remove'} className={style.teste}/> 
+                    <Buttons onClick={() => {removeAllItem(item)}} label={'REMOVE'}/> 
                   </div>
                 </div>
               </div>
             </>
           )
         })}
+      </div>
+      <div className={style.div_contentFinallyShop}>
+        <h5>SubTotal: R$ {subtotal}</h5>
+        <Buttons onClick={() => {}} label={'FINALIZAR COMPRA  '}/>
       </div>
     </div>
   )
