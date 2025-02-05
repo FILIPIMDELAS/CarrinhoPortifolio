@@ -3,31 +3,29 @@ import Input from '../input/input'
 import IconLabel from '../iconLabel/iconLabel'
 import Buttons from '../buttons/buttons'
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import Kart from '../kart/kart.jsx'
 
 export default function Header(){
   const Navigate = useNavigate()
+  const [ viewKart, setviewKart ] = useState(false)
 
-  const search = () => {
-    console.log('fd')
+  const ViewerKart = () => {
+    setviewKart(!viewKart)
   }
 
-  const redirectShoes = () => {
-    Navigate('/Shoes')
-  }
-  const redirectShits = () => {
-    Navigate('/Shirts')
-  }
-  const redirectHome = () => {
-    Navigate('/Home')
+  const redirect = (redirect) => {
+    Navigate(`/${redirect}`)
   }
 
   return(
     <div className={style.div_header}>
       <Input />
-      <Buttons onClick={redirectHome} label={'Home'}/>
-      <Buttons onClick={redirectShoes} label={'Sapatos'}/>
-      <Buttons onClick={redirectShits} label={'Camisetas'}/>
-      <IconLabel name={"ShoppingCart"} label={''} onClick={search}/>
+      <Buttons onClick={() => {redirect('Home')}} label={'Home'}/>
+      <Buttons onClick={() => {redirect('Shoes')}} label={'Sapatos'}/>
+      <Buttons onClick={() => {redirect('Shirts')}} label={'Camisetas'}/>
+      <IconLabel name={"ShoppingCart"} label={''} onClick={ViewerKart}/>
+      {viewKart ? <Kart /> : ''}
     </div>
   )
 }

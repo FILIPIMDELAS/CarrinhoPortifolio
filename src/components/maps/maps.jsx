@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import style from './maps.module.css'
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import IconsLabel from '../iconLabel/iconLabel.jsx'
 import { useGlobalContext } from '../../hooks/globalContext.jsx';
 
 export default function Maps({ itens }){
     const [ itensDate, getItensDate ] = useState(itens || [])
-    const { cardItens, setCardItens } = useGlobalContext()
+    const { setCardItens } = useGlobalContext()
 
     useEffect(() => {
     getItensDate(itens)
