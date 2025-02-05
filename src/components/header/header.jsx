@@ -17,10 +17,14 @@ export default function Header(){
   const redirectShits = () => {
     Navigate('/Shirts')
   }
+  const redirectHome = () => {
+    Navigate('/Home')
+  }
 
   return(
     <div className={style.div_header}>
       <Input />
+      <Buttons onClick={redirectHome} label={'Home'}/>
       <Buttons onClick={redirectShoes} label={'Sapatos'}/>
       <Buttons onClick={redirectShits} label={'Camisetas'}/>
       <IconLabel name={"ShoppingCart"} label={''} onClick={search}/>

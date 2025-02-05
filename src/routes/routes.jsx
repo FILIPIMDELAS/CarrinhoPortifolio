@@ -12,6 +12,7 @@ const routesApp = () => {
     <BackdropAction>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/Shoes" element={<Shoes />} />
         <Route path="/Shirts" element={<Shirts />} />
       </Routes>

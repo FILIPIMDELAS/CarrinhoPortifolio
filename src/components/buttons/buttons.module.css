@@ -1,0 +1,10 @@
+.button{
+    display: flex;
+    background-color: #00000000;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover{
+    transform: scale(1.05);
+}

@@ -1,13 +1,16 @@
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes/routes.jsx'
+import { GlobalProvider } from './hooks/globalContext.jsx'
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </GlobalProvider>
     </>
   )
 }

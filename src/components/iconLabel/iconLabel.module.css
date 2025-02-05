@@ -1,7 +1,15 @@
 .div_IconLabel{
+  display: flex;
+  align-items: center;
   cursor: pointer;
+
+  .icon_Label{
+    width: 20px;
+  }
 }
 
 .div_IconLabel:hover{
   transform: scale(1.1);
 }
+
+
