@@ -1,15 +1,16 @@
 import style from './input.module.css'
-import IconLabel from '../iconLabel/iconLabel'
+import { useGlobalContext } from '../../hooks/globalContext'
 
 export default function Input(){
-  const search = () => {
-    console.log('pppp')
+  const { search, setSearch } = useGlobalContext()
+
+  const HandleSearch = (e) => {
+    setSearch(e.target.value)
   }
 
   return(
     <div className={style.div_input}>
-      <input type="text" />
-      <IconLabel name={"Search"} label={''} onClick={search} />
+      <input type="text" onChange={HandleSearch} value={search}/>
     </div>
   )
 }

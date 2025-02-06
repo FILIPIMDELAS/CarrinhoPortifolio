@@ -5,10 +5,12 @@ import Buttons from '../buttons/buttons'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Kart from '../kart/kart.jsx'
+import { useGlobalContext } from '../../hooks/globalContext.jsx'
 
 export default function Header(){
   const Navigate = useNavigate()
   const [ viewKart, setviewKart ] = useState(false)
+  const {cardItens } = useGlobalContext()
 
   const ViewerKart = () => {
     setviewKart(!viewKart)
@@ -24,7 +26,11 @@ export default function Header(){
       <Buttons onClick={() => {redirect('Home')}} label={'Home'}/>
       <Buttons onClick={() => {redirect('Shoes')}} label={'Sapatos'}/>
       <Buttons onClick={() => {redirect('Shirts')}} label={'Camisetas'}/>
-      <IconLabel name={"ShoppingCart"} label={''} onClick={ViewerKart}/>
+      <div className={style.div_contentIconKart}>
+        <IconLabel clas="Header" name={"ShoppingCart"} label={''} onClick={ViewerKart}/>
+        <p>{cardItens.length}</p>
+      </div>
+      
       {viewKart ? <Kart /> : ''}
     </div>
   )

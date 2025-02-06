@@ -8,13 +8,15 @@
   width: 300px;
   height: 80%;
   border-radius: 10px;
-  background-color: aquamarine;
+  background-color: var(--colorSolid);
+  border: 2px solid lightgray;
   z-index: 10;
 
   .div_contentMapsKart{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
     gap: 10px;
     padding: 5px;
     margin-top: 10px;
@@ -22,54 +24,6 @@
     width: 90%;
     border: 2px solid lightgray;
     border-radius: 10px;
-
-    .div_ContentItemKart{
-      display: flex;
-      border: 2px solid lightgray;
-      border-radius: 10px;
-      width: 95%;
-      height: 15%;
-  
-      & img{
-        height: 100%;
-        width: auto;
-      }
-  
-      .div_ContentInfoItemKart{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 5px 0px 0px 10px;
-
-        & h4{
-          font-size: 1.1em;
-        }
-
-        & h5{
-          font-size: .9em;
-        }
-
-        & p{
-          font-size: .8em;
-        }
-  
-        .div_ContentContItemKart{
-          display: flex;
-          border: auto auto;
-          align-items: center;
-          justify-content: space-around;
-          gap: 7px;
-          font-size: .7em;
-
-          & button{
-            color: red;
-            font-weight: bolder;
-            font-size: 1em;
-          }
-        }
-      }
-    }
   }
 
   .div_contentFinallyShop{
@@ -81,11 +35,15 @@
     height: 9%;
 
     & button{
-      color: blue;
+      color: var(--colorSolid);
       font-weight: bolder;
-      background-color: azure;
+      background-color: var(--colorPrimary);
       padding: 5px 10px;
       border-radius: 5px;
     }
   }
+}
+
+::-webkit-scrollbar{
+  display: none;
 }

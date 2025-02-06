@@ -6,19 +6,20 @@ import { useGlobalContext } from '../../hooks/globalContext.jsx';
 
 export default function Maps({ itens }) {
   const [itensDate, getItensDate] = useState(itens || [])
-  const { setCardItens } = useGlobalContext()
+  const [itensFiltered, setitensFiltered] = useState(itens || [])
+  const { setCardItens, search } = useGlobalContext()
 
   useEffect(() => {
-    getItensDate(itens)
-  }, [itens]);
+    setitensFiltered(itensDate.filter(item => item.name.toLowerCase().includes(search.toLowerCase())))
+  }, [search]);
 
   const addKart = (newItem) => {
     setCardItens(prevItens => [...prevItens, newItem]);
   }
 
   return (
-    <       div className={style.div_ContentMaps}>
-      {itensDate.map((item, index) => {
+    <div className={style.div_ContentMaps}>
+      {itensFiltered.map((item, index) => {
         return (
           <>
             <div key={index} className={style.div_ContentItens}>

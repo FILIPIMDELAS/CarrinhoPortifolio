@@ -1,12 +1,12 @@
-[data-theme="Light"]{
-  --colorPrimary: ;
-  --colorSecundary: ;
-  --colorTextDefault: ;
-  --colorTextReserve: ;
-  --colorSolid: ;
+[theme="Light"]{
+  --colorPrimary: rgb(133, 25, 25);
+  --colorSecundary: rgb(194, 140, 140);
+  --colorTextDefault: black;
+  --colorTextReserve: white;
+  --colorSolid: white;
 }
 
-[data-theme="Dark"]{
+[theme="Dark"]{
   --colorPrimary: ;
   --colorSecundary: ;
   --colorTextDefault: ;
@@ -37,5 +37,5 @@ body{
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
   color: var(--colorTextDefault);
-  background-color: var(--colorPrimary);
+  background-color: var(--colorSolid);
 }

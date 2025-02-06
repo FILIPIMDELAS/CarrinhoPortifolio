@@ -5,6 +5,11 @@
 
   .icon_Label{
     width: 20px;
+    
+  }
+
+  .Header{
+    color: var(--colorSolid);
   }
 }
 

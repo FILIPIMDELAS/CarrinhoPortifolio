@@ -1,0 +1,46 @@
+.div_ContentItemKart {
+  display: flex;
+  border: 2px solid lightgray;
+  width: 95%;
+  height: 15%;
+
+  & img {
+    height: 100%;
+    width: auto;
+  }
+
+  .div_ContentInfoItemKart {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px 0px 0px 10px;
+
+    & h4 {
+      font-size: 1.1em;
+    }
+
+    & h5 {
+      font-size: .9em;
+    }
+
+    & p {
+      font-size: .8em;
+    }
+
+    .div_ContentContItemKart {
+      display: flex;
+      border: auto auto;
+      align-items: center;
+      justify-content: space-around;
+      gap: 7px;
+      font-size: .7em;
+
+      & button {
+        color: red;
+        font-weight: bolder;
+        font-size: 1em;
+      }
+    }
+  }
+}

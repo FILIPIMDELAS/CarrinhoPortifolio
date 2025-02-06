@@ -2,7 +2,7 @@
 import style from './iconLabel.module.css'
 import * as LucideIcons from "lucide-react"
 
-export default function IconLabel({ name, label, onClick }){
+export default function IconLabel({ clas, name, label, onClick }){
   const LucideIcon = LucideIcons[name]
 
   if (!LucideIcon) {
@@ -12,7 +12,7 @@ export default function IconLabel({ name, label, onClick }){
 
   return(
     <div className={`${style.div_IconLabel}`} onClick={onClick}>
-      <LucideIcon className={`${style.icon_Label}`} id={`iconLabel${name, label}`}/>
+      <LucideIcon className={`${style.icon_Label} ${clas ? style[clas] : ''}`} id={`iconLabel${name, label}`}/>
       <label htmlFor={`iconLabel${name, label}`}>{label}</label>
     </div>
   )
