@@ -1,38 +1,44 @@
-.div_contentConfirmerOrder{
+.div_contentConfirmOrder{
     display: flex;
-    margin: 0px auto;
-    margin-top: 5%;
-    padding-top: 10px;
-    border-top: 2px solid lightgray;
-    border-left: 2px solid lightgray;
-    border-right: 2px solid lightgray;
-    width: 80%;
-    height: 50%;
-    border-radius: 10px 10px 0px 0px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 
-    .div_contentMapsConfirmerOrder{
+    .div_contentConfirmerOrder{
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        overflow-y: auto;
-        width: 70%;
-    }
+        width: 50%;
+        min-width: 300px;
+        height: 80%;
+        border-left: 2px solid lightgray;
+        border-bottom: 2px solid lightgray;
+        border-top: 2px solid lightgray;
+        border-radius: 10px 0px 0px 10px;
+        padding: 10px;
 
+        .div_contentMapsConfirmerOrder{
+            display: flex;
+            height: 80%;
+        }
+    
+        .div_ConsultCEPConfirmerOrder{
+            display: flex;
+            height: 20%;
+        }
+    }
+    
     .div_contentResumeConfirmerOrder{
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 20%;
+        min-width: 150px;
+        height: 80%;
+        border-right: 2px solid lightgray;
+        border-bottom: 2px solid lightgray;
+        border-top: 2px solid lightgray;
+        border-left: 2px solid lightgray;
+        border-radius: 0px 10px 10px 0px;
+        padding: 10px;
     }
-}
-
-.div_ConsultCEPConfirmerOrder{
-    display: flex;
-    margin: 0px auto;
-    border-bottom: 2px solid lightgray;
-    border-left: 2px solid lightgray;
-    border-right: 2px solid lightgray;
-    border-radius: 0px 0px 10px 10px;
-    width: 80%;
-    height: 30%;
 }
