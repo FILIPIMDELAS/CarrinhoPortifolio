@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://FILIPIMDELAS.github.io/MeuPortifolio",
+  "homepage": "https://FILIPIMDELAS.github.io/CarrinhoPortifolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
