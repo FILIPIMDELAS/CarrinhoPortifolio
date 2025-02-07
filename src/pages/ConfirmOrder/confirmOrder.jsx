@@ -76,6 +76,7 @@ export default function ConfirmOrder() {
         <div className={style.div_contentResumeConfirmerOrder}>
           <p>SubTotal: R$ {subtotal.toFixed(2)}</p>
           <p>Valor do CEP: R$ {valueCep}</p>
+          <p>Valor do Total: R$ {valueCep.toFixed(2) + subtotal.toFixed(2)}</p>
         </div>
       </div>
     </Layout>
