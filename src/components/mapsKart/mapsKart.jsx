@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import style from './mapsKart.module.css'
 import Buttons from '../buttons/buttons'
 import IconLabel from '../iconLabel/iconLabel'
 import { useGlobalContext } from '../../hooks/globalContext'
 import { useState, useEffect } from 'react'
 
-export default function MapsKart() {
+export default function MapsKart({ clas }) {
     const [stateKart, setStateKart] = useState(true)
     const { cardItens, setCardItens } = useGlobalContext()
     const [itens, setItens] = useState([])
@@ -18,7 +19,6 @@ export default function MapsKart() {
     }else{
       setStateKart(false)
     }
-    console.log(stateKart)
   }, [cardItens])
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function MapsKart() {
                   <h4>{item.name}</h4>
                   <h5>{item.desc}</h5>
                   <p>R$ {(contItens[item.id] * parseFloat(item.price)).toFixed(2)}</p>
-                  <div className={style.div_ContentContItemKart}>
+                  <div className={`${style.div_ContentContItemKart} ${clas ? style[clas] : ''}`}>
                     <IconLabel name={'Minus'} label={''} onClick={() => { removeOneItem(item) }} />
                     {contItens[item.id]}
                     <IconLabel name={'Plus'} label={''} onClick={() => { addMoreOneItem(item) }} />
