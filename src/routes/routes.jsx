@@ -12,11 +12,11 @@ const routesApp = () => {
   return(
     <BackdropAction>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/Shoes" element={<Shoes />} />
-        <Route path="/Shirts" element={<Shirts />} />
-        <Route path="/ConfirmOrder" element={<ConfirmOrder />} />
+        <Route path="CarrinhoPortifolio/" element={<Home />} />
+        <Route path="CarrinhoPortifolio/Home" element={<Home />} />
+        <Route path="CarrinhoPortifolio/Shoes" element={<Shoes />} />
+        <Route path="CarrinhoPortifolio/Shirts" element={<Shirts />} />
+        <Route path="CarrinhoPortifolio/ConfirmOrder" element={<ConfirmOrder />} />
       </Routes>
     </BackdropAction>
   )
