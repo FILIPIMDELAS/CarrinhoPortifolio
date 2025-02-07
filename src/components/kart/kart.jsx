@@ -15,7 +15,7 @@ export default function Kart() {
   }, [cardItens])
 
   const redirect = () => {
-    navigate('CarrinhoPortifolio/ConfirmOrder')
+    navigate('/ConfirmOrder')
   }
 
   return (
