@@ -17,7 +17,7 @@ export default function Header(){
   }
 
   const redirect = (redirect) => {
-    Navigate(`/${redirect}`)
+    Navigate(`CarrinhoPortifolio/${redirect}`)
   }
 
   return(
