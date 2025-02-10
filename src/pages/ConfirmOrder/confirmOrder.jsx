@@ -22,28 +22,25 @@ export default function ConfirmOrder() {
   const searchCep = async (e) => {
     e.preventDefault()
 
-      const response = await fetch(`https://www.melhorenvio.com.br/api/v2/me/shipment/calculate`, {
+      const response = await fetch(`https://api.superfrete.com/`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json' ,
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDNjMWY4ODg1ZDZmZWMyMTI3OTgwZTA4NDkxMTBjNzdiNThkYjdiODI5Zjg5MzNjYWMzMDJjNDBkZTcyY2RiMWI0Njc5ZDU5NmU3ZDkyNTYiLCJpYXQiOjE3Mzg5NDkxMzMuNTg0MTk5LCJuYmYiOjE3Mzg5NDkxMzMuNTg0MjAxLCJleHAiOjE3NzA0ODUxMzMuNTYzMjg0LCJzdWIiOiI5ZTI4MGVkZS0zMjk2LTQ2NGMtOTA2Zi1jYjg5MjE3ZDBlODYiLCJzY29wZXMiOlsic2hpcHBpbmctY2FsY3VsYXRlIl19.Ve7VfWyQaFYYEjHydzV0TIn5jUzHihDG4EJdBhSI_tGp5BaKi0G6e2xji-ZekJi0o3ulX1akCFuxWNO2JWrEvF55tfP5xCxeKwe0tgGFz1gySb-tRd8ZHhzEmnXkJnir6dw41ORPsRam4XWg8Jg4yz-hnEl4WPNwAtbMx4YKLzfl24LNTetaaTjYIR6MU-UUHT0rFojsXWQa8ec6_IVMvAzKYTVEW2rPoeaBbW5FgpWS8Yqls7yWmt7S07CuKwTZthqq_Z7aW8mb772LuWfJxpTe2Y7CwZpAujtM3jPvRyB1JzEPvkIzF5YxgseOYk0hxjsVP7evaFZ7-Ky8i50hfnT61oKGFx18EhOxlaFEPDbSM9ehr9ks9phLdXYgRFqgd13TqcjeaXUUO8Lgbw_LCqP2r652Sq8GkpRvCtjBQhjjUcNKMQlTCQBtmLdRf9viO67cPZ4bi0yihRImI-3heLTqxV53c7KVYjnrVepqNxCwTjxuOEe1aMgbtTOK9zrHD7lxNGyOYw3J5d7P8qQTENGr8nCuJNsqpXjEVurezEnHZ7heLzlPXaGJnoDe9nID-cAgKGw69q9vZKPe27VDHbxakX3zBdOQg7N9fFoncGRbRVgRd2QbxPUL1WMLIO6RHh-zrYIUTSa8MwJZ-pvDOldTK6Pa-m_y-tRruE6g9BA' ,
-          'User-Agent': 'Aplicação filipe_breakmen@hotmail.com'
+          accept: 'application/json',
+          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzkyMTU2NTEsInN1YiI6IjQ0YVNFY2NNeEtaRmlFVlgyUjZnZURoTjdpODIifQ.D6GhaLOohlPuIsPSH0gwI8PBRPEmwilfPftA34XNLWc',
+          'User-Agent': 'CarrinhoCompras filipe_breakmen@hotmail.com',
+          'content-type': 'application/json'
         },
         body: JSON.stringify({
-          from: {postal_code: '96020360'},
-          to: {postal_code: cep},
-          products: [
-            {
-              id: 'x',
-              width: 11,
-              height: 17,
-              length: 11,
-              weight: 0.3,
-              insurance_value: 10.1,
-              quantity: 1
-            }
-          ]
+          from: {postal_code: '01031970'},
+          to: {postal_code: {cep}},
+          services: '1,2,17',
+          options: {
+            own_hand: false,
+            receipt: false,
+            insurance_value: 0,
+            use_insurance_value: false
+          },
+          package: {height: 2, width: 11, length: 16, weight: 0.3}
         })
       })
       .then(response => {
@@ -76,7 +73,7 @@ export default function ConfirmOrder() {
         <div className={style.div_contentResumeConfirmerOrder}>
           <p>SubTotal: R$ {subtotal.toFixed(2)}</p>
           <p>Valor do CEP: R$ {valueCep}</p>
-          <p>Valor do Total: R$ {valueCep.toFixed(2) + subtotal.toFixed(2)}</p>
+          <p>Valor do Total: R$ {parseFloat(valueCep.toFixed(2)) + parseFloat(subtotal.toFixed(2))}</p>
         </div>
       </div>
     </Layout>
